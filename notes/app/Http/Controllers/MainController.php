@@ -10,4 +10,12 @@ class MainController extends Controller
     {
        return view('main');
     }
+
+    public function page1(){
+       return view('page1');
+    }
+
+    public function page2(){
+       return view('page2');
+    }
 }
