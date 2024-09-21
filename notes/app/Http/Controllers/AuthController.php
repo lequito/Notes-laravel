@@ -13,8 +13,15 @@ class AuthController extends Controller{
         //form validate
         $req->validate(
             [
-                'text_username' => 'required',
-                'text_password' => 'required'
+                'text_username' => 'required | email',
+                'text_password' => 'required | min:6 | max:12'
+            ],
+            [
+                'text_username.required' => 'O campo Usuário deve ser preenchido!',
+                'text_username.email' => 'O campo Usuário deve ser preenchido com um E-mail válido!',
+                'text_password.required' => 'O campo Senha é obrigatório!',
+                'text_password.min' => 'O campo Senha deve ter pelo menos :min caractéres!',
+                'text_password.max' => 'O campo Senha deve ter no máximo :max caractéres!',
             ]
         );
 
